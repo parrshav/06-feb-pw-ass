@@ -1,0 +1,60 @@
+Task - 1
+Assignment Questions 
+Assignment 
+Q1. Create a function which will take a list as an argument and return the product of all the numbers  after creating a flat list. 
+Use the below-given list as an argument for your function. 
+list1 = [1,2,3,4, [44,55,66, True], False, (34,56,78,89,34), {1,2,3,3,2,1}, {1:34, "key2": [55, 67, 78, 89], 4: (45,  22, 61, 34)}, [56, 'data science'], 'Machine Learning'] 
+Note: you must extract numeric keys and values of the dictionary also. 
+def calculate_product(lst):
+    flat_list = []
+    for item in lst:
+        if isinstance(item, list):
+            flat_list.extend(item)
+        else:
+            flat_list.append(item)
+
+    product = 1
+    for item in flat_list:
+        if isinstance(item, int) or isinstance(item, float):
+            product *= item
+
+    return product
+
+
+
+list1 = [1, 2, 3, 4, [44, 55, 66, True], False, (34, 56, 78, 89, 34), {1, 2, 3, 3, 2, 1}, {1: 34, "key2": [55, 67, 78, 89], 4: (45, 22, 61, 34)}, [56, 'data science'], 'Machine Learning']
+
+result = calculate_product(list1)
+print(result)  # Output: 22146116579148
+
+
+Q2. Write a python program for encrypting a message sent to you by your friend. The logic of encryption  should be such that, for a the output should be z. For b, the output should be y. For c, the output should  be x respectively. Also, the whitespace should be replaced with a dollar sign. Keep the punctuation  marks unchanged. 
+Input Sentence: I want to become a Data Scientist. 
+Encrypt the above input sentence using the program you just created. 
+Note: Convert the given input sentence into lowercase before encrypting. The final output should be  lowercase. 
+def encrypted(typemessage):
+    message= ""
+    for char in typemessage:
+        if char.isalpha():
+            if char.islower():
+                message_char=chr(ord('z')-(ord(char)-ord('a')))
+            else:
+                char=char.lower()
+                message_char=chr(ord('z')-(ord(char)-ord('a')))
+            message+=message_char
+                
+        elif char==" ":
+            message_char="$"
+            message+=message_char
+            
+        else:
+            message_char=char
+            message+=message_char
+    return message
+
+typemessage = input("Enter the message: ")
+message = encrypted(typemessage)
+print(message)
+
+Note: Create your assignment in Jupyter notebook and upload it to GitHub & share that GitHub repository   link through your dashboard. 
+Data Science Masters
